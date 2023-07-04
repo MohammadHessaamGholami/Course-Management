@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container">
+        <h4>ایجاد پست</h4>
+        <form class="form" action="." method="post" style="margin-bottom: 1em">
+            <div class="form-group">
+                <label for="id_subject">عنوان</label>
+                {{ post_form.subject }}
+            </div>
+            <div class="form-group">
+                <label for="id_text">متن</label>
+                {{ post_form.text }}
+            </div>
+            <div class="custom-file">
+                <label class="custom-file-label" for="id_attachment">انتخاب فایل...</label>
+                {{ post_form.attachment }}
+            </div>
+            <p></p>
+            <button type="button" class="btn btn-primary">ایجاد پست</button>
+        </form>
+        <hr/>
+        <h4>پست‌ها</h4>
+        <form action="." onchange="this.submit()">
+            <label for="sort-posts">مرتب‌سازی به ترتیب تعداد نظرات</label>
+            <input name="sort" id="sort-posts" type="checkbox" {% if sorted %}checked{% endif %}>
+        </form>
+        {% for post in posts %}
+            <div class="card">
+                <div class="card-body">
+                    <div style="display: flex; justify-content: space-between">
+                        <h5 class="card-title">
+                            {{ post.subject }}
+                        </h5>
+                        <span class="badge badge-pill">تعداد کامنت‌ها:
+                            {{ post.comments|length }}</span>
+                        <div>
+                            <span>توسط</span>
+                            <span>{{ post.creator }}</span>
+                        </div>
+                    </div>
+                    <a href="{% url 'courses:post' course_id post.id %}" class="btn btn-primary">مشاهده پست</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

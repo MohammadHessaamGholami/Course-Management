@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container">
+        <div>
+            <h2>جزئیات درس</h2>
+            <hr/>
+            <p>عنوان درس: {{ course.name }}</p>
+            <p>ترم ارائه:
+                <span dir="ltr">{{ course.term }}</span>
+            </p>
+            <p>ارائه کننده: {{ course.presenter.username }}</p>
+            <script>
+
+            </script>
+            <p>
+                <a href="{% url 'courses:course_students' course.id %}">مشاهده دانشجویان</a>
+            </p>
+            <p>
+                <a href="{% url 'courses:course_posts' course.id %}">مشاهده پست‌ها</a>
+            </p>
+
+        </div>
+        <div>
+
+        </div>
+
+    </div>
+{% endblock %}

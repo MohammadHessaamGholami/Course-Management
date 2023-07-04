@@ -1,0 +1,36 @@
+
+# Created by https://www.gitignore.io/api/django,pycharm,virtualenv
+# Edit at https://www.gitignore.io/?templates=django,pycharm,virtualenv
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+db.sqlite3-journal
+media
+
+# Translations
+*.mo
+
+# pyenv
+.python-version
+
+# User-specific stuff
+.idea/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+### VirtualEnv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+pyvenv.cfg
+.env
+.venv
+env/
+venv/
+ENV/
+
+# End of https://www.gitignore.io/api/django,pycharm,virtualenv

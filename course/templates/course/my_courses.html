@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container">
+        <h2>کلاس‌های من</h2>
+        <hr/>
+        {% for c in courses %}
+            <a href="{% url 'courses:course_detail' c.course_id %}">{{ c.name }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}
